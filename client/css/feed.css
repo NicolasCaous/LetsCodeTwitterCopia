@@ -15,7 +15,7 @@ body {
     grid-template-columns: 1fr 275px 598px 350px 1fr;
     
     overflow-x: hidden;
-    overflow-y: overlay
+    overflow-y: overlay;
 }
 
 .layout-wrapper > * {
