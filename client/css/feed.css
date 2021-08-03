@@ -6,12 +6,36 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-areas: "menu header aux"
+    grid-template-areas: "lback menu header search-box rback"
+                         "lback menu tweet-box aux rback"
+                         "lback menu divider aux rback"
+                         "lback menu feed aux rback";
+
+    grid-template-rows: 54px 124px 10px 1fr;
+    grid-template-columns: 1fr 275px 598px 350px 1fr;
+    
+    overflow-x: hidden;
+    /*scrollbar-width: none;*/
+}
+
+/*.layout-wrapper::-webkit-scrollbar {
+    width: 0;
+}*/
+
+.layout-wrapper > * {
+    background-color: black;
+    border-width: 1px;
+    border-color: rgb(47, 51, 54);
+}
+
+@media (max-width: 1223px) and (min-width: 600px) {
+    .layout-wrapper {
+        grid-template-areas: "menu header aux"
                          "menu divider aux"
                          "menu feed aux";
 
-    grid-template-rows: 150px 25px 1fr;
-    grid-template-columns: 200px 1fr 200px;
+        grid-template-columns: 275fr 598px 350fr;
+    }
 }
 
 @media (max-width: 600px) {
@@ -22,24 +46,71 @@ body {
 
         grid-template-columns: 1fr 200px;
     }
+
+    .menu {
+        display: none;
+    }
+}
+
+.fixed {
+    position: fixed;
+}
+
+.lback {
+    grid-area: lback;
 }
 
 .header {
+    border-left-style: solid;
+    border-bottom-style: solid;
     grid-area: header;
+ 
+    left: calc(((100vw - 1223px)/2) + 275px);
+    height: 54px;
+    width: 598px;
+}
+
+.tweet-box {
+    border-left-style: solid;
+    border-bottom-style: solid;
+    grid-area: tweet-box;
+}
+
+.search-box {
+    border-left-style: solid;
+    grid-area: search-box;
+
+    left: calc(((100vw - 1223px)/2) + 275px + 598px);
+    height: 54px;
+    width: 350px;
 }
 
 .divider {
+    border-left-style: solid;
+    border-bottom-style: solid;
     grid-area: divider;
+    background-color: rgb(21, 24, 28);
 }
 
 .feed {
+    border-left-style: solid;
     grid-area: feed;
+    color: white;
 }
 
 .menu {
     grid-area: menu;
+
+    left: calc((100vw - 1223px)/2);
+    height: 100vh;
+    width: 275px;
 }
 
 .aux {
+    border-left-style: solid;
     grid-area: aux;
+}
+
+.rback {
+    grid-area: rback;
 }
