@@ -15,12 +15,8 @@ body {
     grid-template-columns: 1fr 275px 598px 350px 1fr;
     
     overflow-x: hidden;
-    /*scrollbar-width: none;*/
+    overflow-y: overlay
 }
-
-/*.layout-wrapper::-webkit-scrollbar {
-    width: 0;
-}*/
 
 .layout-wrapper > * {
     background-color: black;
