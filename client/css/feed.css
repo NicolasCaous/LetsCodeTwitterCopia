@@ -8,10 +8,9 @@ body {
     display: grid;
     grid-template-areas: "lback menu header search-box rback"
                          "lback menu tweet-box aux rback"
-                         "lback menu divider aux rback"
                          "lback menu feed aux rback";
 
-    grid-template-rows: 54px 124px 10px 1fr;
+    grid-template-rows: 54px 124px 1fr;
     grid-template-columns: 1fr 275px 598px 350px 1fr;
     
     overflow-x: hidden;
@@ -22,30 +21,6 @@ body {
     background-color: black;
     border-width: 1px;
     border-color: rgb(47, 51, 54);
-}
-
-@media (max-width: 1223px) and (min-width: 600px) {
-    .layout-wrapper {
-        grid-template-areas: "menu header aux"
-                         "menu divider aux"
-                         "menu feed aux";
-
-        grid-template-columns: 275fr 598px 350fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .layout-wrapper {
-        grid-template-areas: "header aux"
-                             "divider aux"
-                             "feed aux";
-
-        grid-template-columns: 1fr 200px;
-    }
-
-    .menu {
-        display: none;
-    }
 }
 
 .fixed {
@@ -63,7 +38,7 @@ body {
  
     left: calc(((100vw - 1223px)/2) + 275px);
     height: 54px;
-    width: 598px;
+    width: 597px;
 }
 
 .tweet-box {
@@ -78,14 +53,7 @@ body {
 
     left: calc(((100vw - 1223px)/2) + 275px + 598px);
     height: 54px;
-    width: 350px;
-}
-
-.divider {
-    border-left-style: solid;
-    border-bottom-style: solid;
-    grid-area: divider;
-    background-color: rgb(21, 24, 28);
+    width: 349px;
 }
 
 .feed {
@@ -109,4 +77,148 @@ body {
 
 .rback {
     grid-area: rback;
+}
+
+@media (max-width: 1281px) and (min-width: 1095px) {
+    .layout-wrapper {
+        grid-template-columns: 1fr 88px 598px 350px 1fr;
+    }
+
+    .menu {
+        left: calc((100vw - 88px - 598px - 350px)/2);
+        width: 88px;
+    }
+
+    .header {
+        left: calc(((100vw - 88px - 598px - 350px)/2) + 88px);
+    }
+
+    .search-box {
+        left: calc(((100vw - 88px - 598px - 350px)/2) + 88px + 598px);
+    }
+}
+
+@media (max-width: 1094px) and (min-width: 1005px) {
+    .layout-wrapper {
+        grid-template-columns: 1fr 88px 598px 290px 1fr;
+    }
+
+    .menu {
+        left: calc((100vw - 88px - 598px - 290px)/2);
+        width: 88px;
+    }
+
+    .header {
+        left: calc(((100vw - 88px - 598px - 290px)/2) + 88px);
+    }
+
+    .search-box {
+        left: calc(((100vw - 88px - 598px - 290px)/2) + 88px + 598px);
+    }
+}
+
+@media (max-width: 1004px) and (min-width: 687px) {
+    .layout-wrapper {
+        grid-template-areas: "lback menu header rback"
+                             "lback menu tweet-box rback"
+                             "lback menu feed rback";
+
+        grid-template-columns: 1fr 88px 598px 1fr;
+    }
+
+    .aux {
+        display: none;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .rback {
+        border-left-style: solid;
+    }
+
+    .menu {
+        left: calc((100vw - 88px - 598px)/2);
+        width: 88px;
+    }
+
+    .header {
+        left: calc(((100vw - 88px - 598px)/2) + 88px);
+    }
+}
+
+@media (max-width: 686px) and (min-width: 617px) {
+    .layout-wrapper {
+        grid-template-areas: "menu header"
+                             "menu tweet-box"
+                             "menu feed";
+
+        grid-template-columns: 88px 1fr;
+    }
+
+    .menu {
+        left: 0px;
+        width: 88px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .header {
+        left: 88px;
+        width: calc(100vw - 88px);
+    }
+}
+
+@media (max-width: 616px) and (min-width: 500px) {
+    .layout-wrapper {
+        grid-template-areas: "menu header"
+                             "menu tweet-box"
+                             "menu feed";
+
+        grid-template-columns: 68px 1fr;
+    }
+
+    .menu {
+        left: 0px;
+        width: 68px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .header {
+        left: 68px;
+        width: calc(100vw - 68px);
+    }
+}
+
+@media (max-width: 499px) {
+    .layout-wrapper {
+        grid-template-areas: "header"
+                             "feed"
+                             "menu";
+
+        grid-template-rows: 54px 1fr 54px;
+        grid-template-columns: 1fr;
+    }
+
+    .menu {
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 55px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .header {
+        left: 0;
+        width: 100vw;
+    }
 }
